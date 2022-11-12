@@ -20,5 +20,15 @@ let allCharacters = [];
 let foundCharacters = [];
 let favCharacters = [];
 
+let allCharactersLS = JSON.parse(localStorage.getItem('allCharactersLS'));
+
 //Código que se ejecuta al cargar la página
-fetchCharacters();
+if (allCharactersLS) {
+  renderCharacters(
+    allCharactersLS,
+    listCharactersElement,
+    'main__characters__list__item'
+  );
+} else {
+  fetchCharacters();
+}
