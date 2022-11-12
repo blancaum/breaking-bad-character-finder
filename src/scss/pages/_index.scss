@@ -1,12 +1,12 @@
 .main {
   display: flex;
-  width: 100vw;
+  width: 100%;
   flex-direction: row-reverse;
 
   &__characters {
     display: flex;
     flex-direction: column;
-    width: 70vw;
+    min-width: 70vw;
     flex-wrap: wrap;
     &__title {
       text-align: center;
@@ -17,6 +17,8 @@
       width: 100%;
       flex-wrap: wrap;
       text-align: center;
+      justify-content: center;
+      align-items: flex-start;
     }
   }
   &__favorites {
@@ -41,4 +43,8 @@
     height: 300px;
     object-fit: cover;
   }
+}
+
+.hidden {
+  display: none;
 }
