@@ -33,6 +33,10 @@
   }
 }
 
+.main__characters .item__article {
+  cursor: pointer;
+}
+
 .item__article {
   padding: 20px;
   box-shadow: 10px 5px 5px grey;
@@ -50,6 +54,6 @@
   display: none;
 }
 
-.favorite {
+.main__characters .favorite {
   background-color: antiquewhite;
 }
