@@ -16,16 +16,14 @@ const listFavoritesElement = document.querySelector('.js_list_favorites');
 /***END Elementos HTML***/
 
 //Variables globales
-let allCharacters = [];
+let allCharacters = JSON.parse(localStorage.getItem('allCharactersLS'));
 let foundCharacters = [];
 let favCharacters = [];
 
-let allCharactersLS = JSON.parse(localStorage.getItem('allCharactersLS'));
-
 //Código que se ejecuta al cargar la página
-if (allCharactersLS) {
+if (allCharacters) {
   renderCharacters(
-    allCharactersLS,
+    allCharacters,
     listCharactersElement,
     'main__characters__list__item'
   );

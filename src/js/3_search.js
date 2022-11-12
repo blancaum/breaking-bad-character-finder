@@ -5,8 +5,8 @@
 function handleSearchClick(event) {
   event.preventDefault();
   const searchText = searchInput.value.toLowerCase();
-  if (allCharactersLS) {
-    foundCharacters = allCharactersLS.filter((character) =>
+  if (allCharacters) {
+    foundCharacters = allCharacters.filter((character) =>
       character.name.toLowerCase().includes(searchText)
     );
     renderCharacters(
