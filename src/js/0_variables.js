@@ -21,3 +21,4 @@ let foundCharacters = [];
 let favCharacters = [];
 
 //Código que se ejecuta al cargar la página
+fetchCharacters();

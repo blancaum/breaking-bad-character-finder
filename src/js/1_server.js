@@ -8,6 +8,10 @@ function fetchCharacters() {
     .then((data) => {
       allCharacters = data;
 
-      //renderCharacters(allCharacters);
+      renderCharacters(
+        allCharacters,
+        listCharactersElement,
+        'main__characters__list__item'
+      );
     });
 }
