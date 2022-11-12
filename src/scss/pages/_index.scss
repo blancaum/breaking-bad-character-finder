@@ -1,0 +1,25 @@
+.main {
+  display: flex;
+  width: 100vw;
+  flex-direction: row-reverse;
+
+  &__characters {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    flex-wrap: wrap;
+    &__title {
+      text-align: center;
+      text-transform: capitalize;
+    }
+  }
+  &__favorites {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    flex-wrap: wrap;
+    &__title {
+      text-align: center;
+    }
+  }
+}

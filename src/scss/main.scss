@@ -1,8 +1,12 @@
-// @import 'core/variables';
-// @import 'core/reset';
+@import 'core/variables';
+@import 'core/reset';
 // @import 'components/code';
 // @import 'components/links';
 // @import 'layout/page';
-// @import 'layout/header';
-// @import 'layout/footer';
-// @import 'pages/index';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'pages/index';
+
+:root {
+  font-family: $font-family-montserrat;
+}

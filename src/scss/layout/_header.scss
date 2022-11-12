@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: flex-end;
+  &__form {
+    display: flex;
+    width: 80vw;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    gap: 10px;
+  }
+}
