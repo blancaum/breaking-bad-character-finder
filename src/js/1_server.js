@@ -11,7 +11,7 @@ function fetchCharacters() {
       renderCharacters(
         allCharacters,
         listCharactersElement,
-        'main__characters__list__item'
+        classListItemAllCharacters
       );
     });
 }
@@ -24,7 +24,7 @@ function fetchSearchCharacters(searchText) {
       renderCharacters(
         foundCharacters,
         listCharactersElement,
-        'main__characters__list__item'
+        classListItemAllCharacters
       );
     });
 }

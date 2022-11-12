@@ -12,7 +12,7 @@ function handleSearchClick(event) {
     renderCharacters(
       foundCharacters,
       listCharactersElement,
-      'main__characters__list__item'
+      classListItemAllCharacters
     );
   } else {
     fetchSearchCharacters(searchText);
