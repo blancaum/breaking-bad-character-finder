@@ -1,1 +1,1 @@
-"use strict";
+"use strict";const searchInput=document.querySelector(".js_search_input"),searchBtn=document.querySelector(".js_search_btn"),listCharactersElement=document.querySelector(".js_list_characters"),listFavoritesElement=document.querySelector(".js_list_favorites");let allCharacters=[],foundCharacters=[],favCharacters=[];function fetchCharacters(){fetch("https://breakingbadapi.com/api/characters").then(e=>e.json()).then(e=>{allCharacters=e})}
