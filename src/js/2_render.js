@@ -34,4 +34,5 @@ function renderCharacters(characters, listElement, classListItem) {
     listElement.innerHTML += renderOneCharacter(character, classListItem);
   }
   addCharacterListeners();
+  addFavoriteListeners();
 }

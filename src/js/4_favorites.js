@@ -7,11 +7,20 @@ function addCharacterListeners() {
     `.${classListItemAllCharacters}`
   );
   for (const item of allCharacterItems) {
-    item.addEventListener('click', handleFavoriteClick);
+    item.addEventListener('click', handleCharactersClick);
   }
 }
 
-function handleFavoriteClick(event) {
+function addFavoriteListeners() {
+  const favCharacterItems = document.querySelectorAll(
+    `.${classListItemFavCharacters}`
+  );
+  for (const item of favCharacterItems) {
+    item.addEventListener('click', handleFavoritesClick);
+  }
+}
+
+function handleCharactersClick(event) {
   const favoriteId = parseInt(event.currentTarget.id);
 
   const favoriteCharacter = allCharacters.find(
@@ -24,15 +33,13 @@ function handleFavoriteClick(event) {
 
   if (characterInFavouritesIndex === -1) {
     favCharacters.push(favoriteCharacter);
+    event.currentTarget.classList.add('favorite');
   } else {
     favCharacters.splice(characterInFavouritesIndex, 1);
+    event.currentTarget.classList.remove('favorite');
   }
 
   localStorage.setItem('favCharactersLS', JSON.stringify(favCharacters));
-
-  event.currentTarget.classList.toggle('favorite');
-
-  console.log(favCharacters.length);
 
   if (favCharacters.length > 0) {
     sectionFavoritesElement.classList.remove('hidden');
@@ -44,4 +51,14 @@ function handleFavoriteClick(event) {
   } else {
     sectionFavoritesElement.classList.add('hidden');
   }
+}
+
+function handleFavoritesClick(event) {
+  handleCharactersClick(event);
+
+  renderCharacters(
+    allCharacters,
+    listCharactersElement,
+    classListItemAllCharacters
+  );
 }
