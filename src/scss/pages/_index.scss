@@ -12,6 +12,12 @@
       text-align: center;
       text-transform: capitalize;
     }
+    &__list {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      text-align: center;
+    }
   }
   &__favorites {
     display: flex;
@@ -21,5 +27,18 @@
     &__title {
       text-align: center;
     }
+  }
+}
+
+.item__article {
+  padding: 20px;
+  box-shadow: 10px 5px 5px grey;
+  word-wrap: break-word;
+  width: 200px;
+  min-height: 375px;
+  &__img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
   }
 }

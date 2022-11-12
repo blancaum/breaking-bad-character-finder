@@ -4,10 +4,10 @@
 
 function renderOneCharacter(character, classListItem, index) {
   const html = `<li class="${classListItem}--${index}">
-  <article>
-    <img src="${character.img}" alt="${character.name}">
-    <h3>${character.name}</h3>
-    <p>${character.status}</p>
+  <article class="item__article">
+    <img class="item__article__img" src="${character.img}" alt="${character.name}">
+    <h3 class="item__article__title">${character.name}</h3>
+    <p class="item__article__text">${character.status}</p>
   </article>
 </li>`;
   return html;
