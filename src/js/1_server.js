@@ -15,3 +15,16 @@ function fetchCharacters() {
       );
     });
 }
+
+function fetchSearchCharacters(searchText) {
+  fetch(`https://breakingbadapi.com/api/characters?name=${searchText}`)
+    .then((response) => response.json())
+    .then((data) => {
+      foundCharacters = data;
+      renderCharacters(
+        foundCharacters,
+        listCharactersElement,
+        'main__characters__list__item'
+      );
+    });
+}

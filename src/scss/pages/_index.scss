@@ -2,7 +2,8 @@
   display: flex;
   width: 100%;
   flex-direction: row-reverse;
-
+  margin-bottom: 56px;
+  justify-content: center;
   &__characters {
     display: flex;
     flex-direction: column;
