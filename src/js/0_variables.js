@@ -26,7 +26,7 @@ const classListItemFavCharacters = 'js_favorite_article';
 
 //Código que se ejecuta al cargar la página
 if (favCharacters && favCharacters.length > 0) {
-  favCharacters = JSON.parse(localStorage.getItem('favCharactersLS'));
+  //favCharacters = JSON.parse(localStorage.getItem('favCharactersLS'));
   sectionFavoritesElement.classList.remove('hidden');
   renderCharacters(
     favCharacters,
