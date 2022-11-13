@@ -57,6 +57,11 @@
       &::placeholder {
         color: $color-dark-1;
         font-family: $font-family-montserrat;
+        font-size: 0.8em;
+
+        @media all and (min-width: 768px) {
+          font-size: 1em;
+        }
       }
     }
 
