@@ -2,10 +2,26 @@
 $font-family-montserrat: 'Montserrat', sans-serif;
 $font-family-awesome: 'Font Awesome 5 Free';
 // colors
-
+$color-light: #E4ECE3ff;
+$color-green: #005C3Bff;
+$color-green-2: #315934ff;
+$color-dark-1: #020201ff;
+$color-dark-2: #060805ff;
+$color-dark-3: #060b07;
+$color-medium: #0F1B10ff;
+$blue-green-color-wheel: #065850ff;
+$dartmouth-green: #006E37ff;
+$castleton-green: #005C3Bff;
+$white: #FFFFFFff;
+$black: #000000ff;
 
 
 //para toda la página
 :root {
     font-family: $font-family-montserrat;
+    color: $color-light;
+}
+
+.body {
+    background: linear-gradient(0deg, $color-dark-1 0%, $color-dark-3 100%);
 }

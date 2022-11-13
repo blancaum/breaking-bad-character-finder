@@ -3,12 +3,56 @@
   width: 100vw;
   justify-content: center;
   align-items: flex-end;
+  background-image: url(../images/breaking-bad-banner-5.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 400px;
+
   &__form {
     display: flex;
-    width: 80vw;
+    width: 60vw;
     justify-content: center;
     align-items: center;
     height: 100px;
-    gap: 10px;
+    gap: 30px;
+    background-color: transparent;
+    opacity: 0.95;
+    transform: translateY(100%);
+
+    //box-shadow: 1px 1px 14px 9px rgba(0, 0, 0, 0.95);
+    &__input {
+      border: solid 3px $color-green;
+      background-color: $color-light;
+      width: 50%;
+      color: $color-dark-1;
+      font-family: $font-family-montserrat;
+      font-size: 1rem;
+      padding: 10px;
+      box-shadow: 0px 0px 14px 9px $color-green;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: $color-dark-1;
+        font-family: $font-family-montserrat;
+      }
+    }
+
+    &__btn {
+      border: solid 3px $color-light;
+      background-color: $color-green;
+      color: $color-light;
+      font-size: 1rem;
+      font-family: $font-family-montserrat;
+      padding: 10px 40px;
+      font-weight: 600;
+
+      &:hover {
+        background-color: darken($color-green, 10%);
+      }
+    }
   }
 }
