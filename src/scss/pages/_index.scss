@@ -4,13 +4,18 @@
   flex-direction: row-reverse;
   margin-bottom: 56px;
   justify-content: center;
+  margin-top: 140px;
+
+  @media all and (min-width: 768px) {
+    margin-top: 120px;
+  }
 
   &__characters {
     display: flex;
     flex-direction: column;
     min-width: 70vw;
     flex-wrap: wrap;
-    margin-top: 100px;
+
 
     &__title {
       text-align: center;
@@ -32,7 +37,6 @@
     flex-direction: column;
     width: 30vw;
     flex-wrap: wrap;
-    margin-top: 100px;
 
     &__title {
       text-align: center;
