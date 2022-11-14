@@ -1,67 +1,155 @@
+@mixin section-display {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+@mixin list-display {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+@mixin section-title {
+  text-align: center;
+  font-weight: 800;
+  padding-bottom: 20px;
+  text-shadow: 4px 4px 2px rgba(0, 92, 59, 0.6);
+  font-size: 1.2rem;
+
+  @media all and (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media all and (min-width: 1280px) {
+    font-size: 2rem;
+  }
+}
+
 .main {
   display: flex;
   width: 100%;
-  flex-direction: row-reverse;
-  margin-bottom: 56px;
   justify-content: center;
+  align-items: center;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-top: 140px;
+  margin-bottom: 56px;
+  box-sizing: border-box;
+
+  @media all and (min-width: 768px) {
+    margin-top: 120px;
+    margin-bottom: 112px;
+    // padding-right: 25px;
+    // padding-left: 25px;
+  }
+
+  @media all and (min-width: 1268px) {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  &__wrapper1 {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    box-sizing: border-box;
+
+    @media all and (min-width: 768px) {
+      flex-direction: row-reverse;
+      gap: 0px;
+    }
+  }
 
   &__characters {
-    display: flex;
-    flex-direction: column;
-    min-width: 70vw;
-    flex-wrap: wrap;
+    @include section-display;
+    width: fit-content;
+
+    @media all and (min-width: 768px) {
+      width: 70%;
+    }
 
     &__title {
-      text-align: center;
+      @include section-title;
       text-transform: capitalize;
+
     }
 
     &__list {
-      display: flex;
-      width: 100%;
-      flex-wrap: wrap;
-      text-align: center;
-      justify-content: center;
-      align-items: flex-start;
+      @include list-display;
     }
   }
 
   &__favorites {
-    display: flex;
-    flex-direction: column;
-    width: 30vw;
-    flex-wrap: wrap;
+    @include section-display;
+    min-width: min-content;
+
+    @media all and (min-width: 768px) {
+      width: 30%;
+    }
+
+    @media all and (min-width: 1280px) {}
 
     &__title {
-      text-align: center;
+      @include section-title;
     }
 
     &__list {
-      display: flex;
-      width: 100%;
-      flex-wrap: wrap;
-      text-align: center;
-      justify-content: center;
-      align-items: flex-start;
+      @include list-display;
     }
   }
 }
 
-.main__characters .item__article {
-  cursor: pointer;
-}
+// .main__characters .item__article {
+//   cursor: pointer;
+// }
 
 .item__article {
-  padding: 20px;
-  box-shadow: 10px 5px 5px grey;
+  cursor: pointer;
+  padding: 10px;
   word-wrap: break-word;
-  width: 200px;
-  min-height: 375px;
+  width: 150px;
+  height: 150px;
+  font-size: 0.8rem;
+  background: $color-green;
+  background: linear-gradient(-45deg, $color-green-2 0%, $color-green-3 100%);
+  border: solid 2px $color-light;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+  @media all and (min-width: 1280px) {
+    width: 200px;
+    min-height: 200px;
+    padding: 20px;
+  }
+
+  &__title {
+    font-weight: 600;
+    text-align: right;
+    margin-bottom: 10px;
+    align-self: flex-end;
+  }
 
   &__img {
-    width: 200px;
-    height: 300px;
+    width: 75%;
+    height: 75%;
     object-fit: cover;
+    object-position: top center;
+  }
+
+  &__text {
+    margin-top: 10px;
+    align-self: flex-start;
   }
 }
 
@@ -70,15 +158,16 @@
 }
 
 .favorite {
-  background-color: antiquewhite;
+  //background: darken($color-green, 10%);
+  background: linear-gradient(-45deg, darken($color-green-2, 10%) 0%, darken($color-green-3, 10%) 100%);
 }
 
-.main__favorites .favorite:before {
-  font-family: $font-family-awesome;
-  content: "\f057";
-  font-size: 2rem;
-  margin: 10px;
-  font-weight: 900;
-  text-align: right;
-  cursor: pointer;
-}
+// .main__favorites .favorite:before {
+//   font-family: $font-family-awesome;
+//   content: "\f057";
+//   font-size: 1rem;
+//   margin: 10px;
+//   font-weight: 900;
+//   text-align: right;
+//   cursor: pointer;
+// }
