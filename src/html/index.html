@@ -19,41 +19,14 @@
 <body class="body">
 
   <header id="top" class="header">
-    <form class="header__form">
-      <input class="header__form__input js_search_input" type="text" placeholder="Example: Walter White">
-      <button class="header__form__btn js_search_btn">Search</button>
-    </form>
+    <include src="./partials/header.html"></include>
   </header>
 
   <main class="main">
-    <div class="main__wrapper1">
-      <section class="main__characters js_section_characters">
-        <h1 class="main__characters__title">Breaking bad characters</h1>
-        <ul class="main__characters__list js_list_characters">
-        </ul>
-      </section>
-      <section id="section-favorites" class="main__favorites js_section_favorites hidden">
-        <h2 class="main__favorites__title">Favorites</h2>
-        <ul class="main__favorites__list js_list_favorites"></ul>
-      </section>
-    </div>
-    <section class="main__message js_fav_message hidden">
-      <p class="main__message__text">Added to favorites!</p>
-      <a class="main__message__link" href="./#section-favorites">See favorites</a>
-    </section>
-    <section class="main__buttons">
-      <a class="main__buttons__goup" href="./#top" title="Go to the top"><i
-          class="main__buttons__goup__icon fa-solid fa-circle-chevron-up"></i></a>
-      <a class="main__buttons__gofav js_button_gofav hidden" href="./#section-favorites" title="Go to favorites"><i
-          class="main__buttons__gofav__icon fa-solid fa-star"></i></a>
-    </section>
+    <include src="./partials/main.html"></include>
   </main>
   <footer class="footer">
-    <p class="footer__text"><span class="footer__text--capitalize">Breaking bad</span> is regarded as one of the
-      greatest television series of all time, and with 16 <span class="footer__text--capitalize">Primetime
-        emmy awards</span>
-    </p>
-    <small class="footer__small footer__text--capitalize">&copy;Blanca ubis martinez 2022</small>
+    <include src="./partials/footer.html"></include>
   </footer>
 
   <script src="./assets/js/main.js"></script>
