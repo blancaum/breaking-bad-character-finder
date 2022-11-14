@@ -2,6 +2,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
+//Función que quita el mensaje de "Added to favorites"
+const removeMsg = () => {
+  favMessage.classList.add('hidden');
+};
+
+/***Handle Characters***/
 function addCharacterListeners() {
   const allCharacterItems = document.querySelectorAll(
     `.${classListItemAllCharacters}`
@@ -10,17 +16,6 @@ function addCharacterListeners() {
     item.addEventListener('click', handleCharactersClick);
   }
 }
-
-function addFavoriteListeners() {
-  const favRemoveIcons = document.querySelectorAll(`.${classRemoveIcon}`);
-  for (const icon of favRemoveIcons) {
-    icon.addEventListener('click', handleFavoritesClick);
-  }
-}
-
-const removeMsg = () => {
-  favMessage.classList.add('hidden');
-};
 
 function handleCharactersClick(event) {
   const favoriteElement = event.currentTarget;
@@ -57,6 +52,16 @@ function handleCharactersClick(event) {
   } else {
     sectionFavoritesElement.classList.add('hidden');
     btnGoFav.classList.add('hidden');
+  }
+}
+
+/***END Handle Characters***/
+
+/***Handle Favorites***/
+function addFavoriteListeners() {
+  const favRemoveIcons = document.querySelectorAll(`.${classRemoveIcon}`);
+  for (const icon of favRemoveIcons) {
+    icon.addEventListener('click', handleFavoritesClick);
   }
 }
 
@@ -101,3 +106,5 @@ function handleFavoritesClick(event) {
     classListItemAllCharacters
   );
 }
+
+/***END Handle Favorites***/
