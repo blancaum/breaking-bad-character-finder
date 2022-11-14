@@ -12,16 +12,15 @@ function addCharacterListeners() {
 }
 
 function addFavoriteListeners() {
-  const favCharacterItems = document.querySelectorAll(
-    `.${classListItemFavCharacters}`
-  );
-  for (const item of favCharacterItems) {
-    item.addEventListener('click', handleFavoritesClick);
+  const favRemoveIcons = document.querySelectorAll(`.${classRemoveIcon}`);
+  for (const icon of favRemoveIcons) {
+    icon.addEventListener('click', handleFavoritesClick);
   }
 }
 
 function handleCharactersClick(event) {
-  const favoriteId = parseInt(event.currentTarget.id);
+  const favoriteElement = event.currentTarget;
+  const favoriteId = parseInt(favoriteElement.id);
 
   const favoriteCharacter = allCharacters.find(
     (character) => character.char_id === favoriteId
@@ -33,17 +32,17 @@ function handleCharactersClick(event) {
 
   if (characterInFavouritesIndex === -1) {
     favCharacters.push(favoriteCharacter);
-    event.currentTarget.classList.add('favorite');
+    favoriteElement.classList.add('favorite');
   } else {
     favCharacters.splice(characterInFavouritesIndex, 1);
-    event.currentTarget.classList.remove('favorite');
+    favoriteElement.classList.remove('favorite');
   }
 
   localStorage.setItem('favCharactersLS', JSON.stringify(favCharacters));
 
   if (favCharacters.length > 0) {
     sectionFavoritesElement.classList.remove('hidden');
-    renderCharacters(
+    renderFavorites(
       favCharacters,
       listFavoritesElement,
       classListItemFavCharacters
@@ -54,7 +53,37 @@ function handleCharactersClick(event) {
 }
 
 function handleFavoritesClick(event) {
-  handleCharactersClick(event);
+  const favoriteElement = event.currentTarget.parentElement;
+  const favoriteId = parseInt(favoriteElement.id);
+
+  const favoriteCharacter = allCharacters.find(
+    (character) => character.char_id === favoriteId
+  );
+
+  const characterInFavouritesIndex = favCharacters.findIndex(
+    (character) => character.char_id === favoriteId
+  );
+
+  if (characterInFavouritesIndex === -1) {
+    favCharacters.push(favoriteCharacter);
+    favoriteElement.classList.add('favorite');
+  } else {
+    favCharacters.splice(characterInFavouritesIndex, 1);
+    favoriteElement.classList.remove('favorite');
+  }
+
+  localStorage.setItem('favCharactersLS', JSON.stringify(favCharacters));
+
+  if (favCharacters.length > 0) {
+    sectionFavoritesElement.classList.remove('hidden');
+    renderFavorites(
+      favCharacters,
+      listFavoritesElement,
+      classListItemFavCharacters
+    );
+  } else {
+    sectionFavoritesElement.classList.add('hidden');
+  }
 
   renderCharacters(
     allCharacters,

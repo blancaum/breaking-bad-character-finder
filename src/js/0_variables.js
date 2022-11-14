@@ -23,12 +23,13 @@ let favCharacters = JSON.parse(localStorage.getItem('favCharactersLS'));
 
 const classListItemAllCharacters = 'js_character_article';
 const classListItemFavCharacters = 'js_favorite_article';
+const classRemoveIcon = 'js_remove_favorite';
 
 //Código que se ejecuta al cargar la página
 if (favCharacters && favCharacters.length > 0) {
   //favCharacters = JSON.parse(localStorage.getItem('favCharactersLS'));
   sectionFavoritesElement.classList.remove('hidden');
-  renderCharacters(
+  renderFavorites(
     favCharacters,
     listFavoritesElement,
     classListItemFavCharacters

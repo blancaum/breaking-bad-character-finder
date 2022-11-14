@@ -45,8 +45,6 @@
   @media all and (min-width: 768px) {
     margin-top: 120px;
     margin-bottom: 112px;
-    // padding-right: 25px;
-    // padding-left: 25px;
   }
 
   @media all and (min-width: 1268px) {
@@ -107,12 +105,11 @@
   }
 }
 
-// .main__characters .item__article {
-//   cursor: pointer;
-// }
+.main__characters .item__article {
+  cursor: pointer;
+}
 
 .item__article {
-  cursor: pointer;
   padding: 10px;
   word-wrap: break-word;
   width: 150px;
@@ -151,6 +148,31 @@
     margin-top: 10px;
     align-self: flex-start;
   }
+
+  &__remove {
+    height: 0;
+    overflow: visible;
+
+    &__icon {
+      transform: translate(330%, -100%);
+      font-size: 1.7rem;
+      cursor: pointer;
+      background-color: $color-green;
+      border-radius: 50%;
+
+      @media all and (min-width: 1280px) {
+        transform: translate(380%, -120%);
+        font-size: 2rem;
+      }
+
+      &:hover {
+        background-color: $color-light;
+        color: darken($color-remove, 10%);
+
+      }
+    }
+  }
+
 }
 
 .hidden {
@@ -158,16 +180,6 @@
 }
 
 .favorite {
-  //background: darken($color-green, 10%);
+  background: darken($color-green, 10%);
   background: linear-gradient(-45deg, darken($color-green-2, 10%) 0%, darken($color-green-3, 10%) 100%);
 }
-
-// .main__favorites .favorite:before {
-//   font-family: $font-family-awesome;
-//   content: "\f057";
-//   font-size: 1rem;
-//   margin: 10px;
-//   font-weight: 900;
-//   text-align: right;
-//   cursor: pointer;
-// }
