@@ -27,6 +27,7 @@ let allCharacters = JSON.parse(localStorage.getItem('allCharactersLS'));
 let foundCharacters = [];
 let favCharacters = JSON.parse(localStorage.getItem('favCharactersLS'));
 
+//Clases HTML necesarias
 const classListItemAllCharacters = 'js_character_article';
 const classListItemFavCharacters = 'js_favorite_article';
 const classRemoveIcon = 'js_remove_favorite';
