@@ -18,7 +18,6 @@
 @mixin section-title {
   text-align: center;
   font-weight: 800;
-  padding-bottom: 20px;
   text-shadow: 4px 4px 2px rgba(0, 92, 59, 0.6);
   font-size: 1.2rem;
 
@@ -76,6 +75,7 @@
 
     &__title {
       @include section-title;
+      padding-bottom: 20px;
       text-transform: capitalize;
 
     }
@@ -93,10 +93,35 @@
       width: 30%;
     }
 
-    @media all and (min-width: 1280px) {}
+    &__wrapper1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 20px;
+    }
 
     &__title {
       @include section-title;
+    }
+
+    &__trash {
+      margin-left: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-remove;
+      }
+
+      @media all and (min-width: 768px) {
+        font-size: 1.2rem;
+      }
+
+      @media all and (min-width: 1280px) {
+        margin-left: 20px;
+        margin-bottom: -2px;
+        font-size: 1.5rem;
+      }
     }
 
     &__list {

@@ -20,6 +20,9 @@ const favMessage = document.querySelector('.js_fav_message');
 //Botón de ir a favoritos
 const btnGoFav = document.querySelector('.js_button_gofav');
 
+//Botón de resetear favoritos
+const btnResetFav = document.querySelector('.js_reset_favorites');
+
 /***END Elementos HTML***/
 
 //Variables globales

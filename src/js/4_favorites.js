@@ -108,3 +108,29 @@ function handleFavoritesClick(event) {
 }
 
 /***END Handle Favorites***/
+
+/***Reset Favorites***/
+
+btnResetFav.addEventListener('click', handleResetClick);
+
+function handleResetClick(event) {
+  //limpiar array de favoritos
+  favCharacters = [];
+  //limpiar favs de local storage
+  localStorage.removeItem('favCharactersLS');
+  //volver a pintar fav
+  renderFavorites(
+    favCharacters,
+    listFavoritesElement,
+    classListItemFavCharacters
+  );
+  //volver a pintar personajes
+  renderCharacters(
+    allCharacters,
+    listCharactersElement,
+    classListItemAllCharacters
+  );
+  //esconder sección de favoritos
+  sectionFavoritesElement.classList.add('hidden');
+  btnGoFav.classList.add('hidden');
+}
