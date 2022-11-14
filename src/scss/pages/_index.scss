@@ -103,6 +103,89 @@
       @include list-display;
     }
   }
+
+  &__message {
+    position: fixed;
+    bottom: 100px;
+    z-index: 100;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: $color-light;
+    color: $color-green;
+    padding: 10px;
+    opacity: 90%;
+    font-weight: 500;
+    border: solid 3px darken($color-light, 10%);
+
+    &__link {
+      color: darken($color-green, 20%);
+      font-weight: 700;
+
+      @media all and (min-width: 768px) {
+        display: none;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    margin-right: 10px;
+    position: fixed;
+    bottom: 100px;
+    right: 0;
+    z-index: 50;
+
+    &__goup {
+      color: $color-light;
+      padding: 2px;
+
+      &__icon {
+        background-color: $color-green;
+        border-radius: 50%;
+        font-size: 2rem;
+
+        &:hover {
+          animation: 0.7s infinite alternate-reverse buttonup;
+
+          @keyframes buttonup {
+            from {
+              transform: translateY(0%);
+            }
+
+            to {
+              transform: translateY(-20%);
+            }
+          }
+        }
+      }
+    }
+
+    &__gofav {
+      color: $color-remove;
+
+      @media all and (min-width: 768px) {
+        display: none;
+      }
+
+      &__icon {
+        padding: 4px;
+        background-color: $color-green;
+        border-radius: 50%;
+        font-size: 1.5rem;
+
+        &:hover {
+          transition: transform 1s;
+          transform: rotate(360deg) scale(1.1);
+        }
+      }
+    }
+  }
 }
 
 .main__characters .item__article {
@@ -165,8 +248,8 @@
       }
 
       &:hover {
-        background-color: $color-light;
-        color: darken($color-remove, 20%);
+        background-color: $color-green;
+        color: $color-remove;
 
       }
     }

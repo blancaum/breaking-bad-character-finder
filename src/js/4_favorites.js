@@ -18,6 +18,10 @@ function addFavoriteListeners() {
   }
 }
 
+const removeMsg = () => {
+  favMessage.classList.add('hidden');
+};
+
 function handleCharactersClick(event) {
   const favoriteElement = event.currentTarget;
   const favoriteId = parseInt(favoriteElement.id);
@@ -33,6 +37,8 @@ function handleCharactersClick(event) {
   if (characterInFavouritesIndex === -1) {
     favCharacters.push(favoriteCharacter);
     favoriteElement.classList.add('favorite');
+    favMessage.classList.remove('hidden');
+    setTimeout(removeMsg, 3000);
   } else {
     favCharacters.splice(characterInFavouritesIndex, 1);
     favoriteElement.classList.remove('favorite');
@@ -42,6 +48,7 @@ function handleCharactersClick(event) {
 
   if (favCharacters.length > 0) {
     sectionFavoritesElement.classList.remove('hidden');
+    btnGoFav.classList.remove('hidden');
     renderFavorites(
       favCharacters,
       listFavoritesElement,
@@ -49,6 +56,7 @@ function handleCharactersClick(event) {
     );
   } else {
     sectionFavoritesElement.classList.add('hidden');
+    btnGoFav.classList.add('hidden');
   }
 }
 
@@ -76,6 +84,7 @@ function handleFavoritesClick(event) {
 
   if (favCharacters.length > 0) {
     sectionFavoritesElement.classList.remove('hidden');
+    btnGoFav.classList.remove('hidden');
     renderFavorites(
       favCharacters,
       listFavoritesElement,
@@ -83,6 +92,7 @@ function handleFavoritesClick(event) {
     );
   } else {
     sectionFavoritesElement.classList.add('hidden');
+    btnGoFav.classList.add('hidden');
   }
 
   renderCharacters(

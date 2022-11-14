@@ -14,6 +14,12 @@ const listCharactersElement = document.querySelector('.js_list_characters');
 const sectionFavoritesElement = document.querySelector('.js_section_favorites');
 const listFavoritesElement = document.querySelector('.js_list_favorites');
 
+//Mensaje de añadir a favoritos
+const favMessage = document.querySelector('.js_fav_message');
+
+//Botón de ir a favoritos
+const btnGoFav = document.querySelector('.js_button_gofav');
+
 /***END Elementos HTML***/
 
 //Variables globales
@@ -27,8 +33,8 @@ const classRemoveIcon = 'js_remove_favorite';
 
 //Código que se ejecuta al cargar la página
 if (favCharacters && favCharacters.length > 0) {
-  //favCharacters = JSON.parse(localStorage.getItem('favCharactersLS'));
   sectionFavoritesElement.classList.remove('hidden');
+  btnGoFav.classList.remove('hidden');
   renderFavorites(
     favCharacters,
     listFavoritesElement,
@@ -37,6 +43,7 @@ if (favCharacters && favCharacters.length > 0) {
 } else {
   favCharacters = [];
   sectionFavoritesElement.classList.add('hidden');
+  btnGoFav.classList.add('hidden');
 }
 
 if (allCharacters) {
