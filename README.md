@@ -10,6 +10,14 @@ En este proyecto hay 3 tipos de ficheros y carpetas:
 - La carpeta `src/`: son los ficheros de nuestra página web, como HTML, CSS, JS...
 - La carpeta `docs/`, que son generadas automáticamente cuando arrancamos el proyecto. El Kit lee los ficheros que hay dentro de `src/`, los procesa y los genera dentro de `docs/`.
 
+## Introducción al proyecto
+
+Se trata de una aplicación web de **Breaking Bad**, que nos muestra los personajes y nos permite marcarlos y desmarcarlos como favoritos y guardarlos en local storage. También nos permitirá realizar una búsqueda por el nombre del personaje.
+
+Para sacar el listado, las características y las imágenes de los personajes haremos uso de [**The Breaking Bad API**](https://breakingbadapi.com/).
+
+La aplicación realizada es completamente **responsive** y funciona tanto en móvil como tablet o desktop. Tiene alguna funcionalidad exclusiva de móvil, como por ejemplo el botón de favoritos, que nos lleva directamente a la sección de favoritos para hacer más cómoda la navegación.
+
 ## Guía de inicio rápido
 
 > **NOTA:** Necesitas tener instalado [Node JS](https://nodejs.org/) para trabajar con este proyecto:
