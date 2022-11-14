@@ -1,6 +1,6 @@
-# Breaking Bad Characters - Evaluacion final Modulo 2
+# Breaking Bad Characters - Evaluación final Módulo 2
 
-## Autora: Blanca Ubis Martinez
+## Autora: Blanca Ubis Martínez
 
 Basado en el [**Adalab Starter Kit**](https://github.com/Adalab/adalab-web-starter-kit).
 
