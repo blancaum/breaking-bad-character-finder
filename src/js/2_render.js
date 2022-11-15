@@ -46,10 +46,16 @@ function createBaseArticle(character, classListItem) {
   return newArticle;
 }
 
-function renderOneCharacter(character, classListItem) {
+function renderOneCharacter(character, classListItem, isFav) {
   //nuevos elementos
-  const newArticle = createBaseArticle(character, classListItem);
+  let newArticle = {};
   const newLi = document.createElement('li');
+
+  if (isFav) {
+    newArticle = createFavArticle(character, classListItem);
+  } else {
+    newArticle = createBaseArticle(character, classListItem);
+  }
 
   //añadimos clases al li
   newLi.classList.add('item');
@@ -60,12 +66,20 @@ function renderOneCharacter(character, classListItem) {
   return newLi;
 }
 
-function renderCharacters(characters, listElement, classListItem) {
+function renderCharacters(
+  characters,
+  listElement,
+  classListItem,
+  isFav = false
+) {
   listElement.innerHTML = '';
   for (const character of characters) {
-    listElement.appendChild(renderOneCharacter(character, classListItem));
+    listElement.appendChild(
+      renderOneCharacter(character, classListItem, isFav)
+    );
   }
   addCharacterListeners();
+  addFavoriteListeners();
 }
 
 /***END Render personajes***/
@@ -92,28 +106,6 @@ function createFavArticle(character, classListItem) {
   favArticle.insertBefore(newDiv, favArticle.firstChild);
 
   return favArticle;
-}
-
-function renderOneFavorite(character, classListItem) {
-  //nuevos elementos
-  const newArticle = createFavArticle(character, classListItem);
-  const newLi = document.createElement('li');
-
-  //añadimos clases al li
-  newLi.classList.add('item');
-
-  //añadimos el article al li
-  newLi.appendChild(newArticle);
-
-  return newLi;
-}
-
-function renderFavorites(characters, listElement, classListItem) {
-  listElement.innerHTML = '';
-  for (const character of characters) {
-    listElement.appendChild(renderOneFavorite(character, classListItem));
-  }
-  addFavoriteListeners();
 }
 
 /***END Render favoritos***/

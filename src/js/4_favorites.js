@@ -35,10 +35,12 @@ function handleCharactersClick(event) {
 
   if (favCharacters.length > 0) {
     showFavorites();
-    renderFavorites(
+    const isFav = true;
+    renderCharacters(
       favCharacters,
       listFavoritesElement,
-      classListItemFavCharacters
+      classListItemFavCharacters,
+      isFav
     );
   } else {
     hideFavorites();
@@ -76,10 +78,12 @@ function handleFavoritesClick(event) {
 
   if (favCharacters.length > 0) {
     showFavorites();
-    renderFavorites(
+    const isFav = true;
+    renderCharacters(
       favCharacters,
       listFavoritesElement,
-      classListItemFavCharacters
+      classListItemFavCharacters,
+      isFav
     );
   } else {
     hideFavorites();
@@ -105,10 +109,12 @@ function handleResetClick() {
   removeFromLocal('favCharactersLS');
 
   //volver a pintar fav
-  renderFavorites(
+  const isFav = true;
+  renderCharacters(
     favCharacters,
     listFavoritesElement,
-    classListItemFavCharacters
+    classListItemFavCharacters,
+    isFav
   );
   //volver a pintar personajes
   renderCharacters(

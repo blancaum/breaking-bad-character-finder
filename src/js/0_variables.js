@@ -27,10 +27,8 @@ const btnResetFav = document.querySelector('.js_reset_favorites');
 
 //Variables globales
 let allCharacters = getFromLocal('allCharactersLS');
-//let allCharacters = JSON.parse(localStorage.getItem('allCharactersLS'));
 let foundCharacters = [];
 let favCharacters = getFromLocal('favCharactersLS');
-//let favCharacters = JSON.parse(localStorage.getItem('favCharactersLS'));
 
 //Clases HTML necesarias
 const classListItemAllCharacters = 'js_character_article';
@@ -41,10 +39,12 @@ const classRemoveIcon = 'js_remove_favorite';
 if (favCharacters && favCharacters.length > 0) {
   sectionFavoritesElement.classList.remove('hidden');
   btnGoFav.classList.remove('hidden');
-  renderFavorites(
+  const isFav = true;
+  renderCharacters(
     favCharacters,
     listFavoritesElement,
-    classListItemFavCharacters
+    classListItemFavCharacters,
+    isFav
   );
 } else {
   favCharacters = [];
