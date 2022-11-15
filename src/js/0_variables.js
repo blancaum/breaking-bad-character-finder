@@ -27,7 +27,7 @@ const btnResetFav = document.querySelector('.js_reset_favorites');
 
 //Variables globales
 let allCharacters = getFromLocal('allCharactersLS');
-let foundCharacters = [];
+let foundCharacters = allCharacters;
 let favCharacters = getFromLocal('favCharactersLS');
 
 //Clases HTML necesarias
@@ -36,6 +36,8 @@ const classListItemFavCharacters = 'js_favorite_article';
 const classRemoveIcon = 'js_remove_favorite';
 
 //Código que se ejecuta al cargar la página
+
+//Gestionar favCharacters
 if (favCharacters && favCharacters.length > 0) {
   sectionFavoritesElement.classList.remove('hidden');
   btnGoFav.classList.remove('hidden');
@@ -52,6 +54,7 @@ if (favCharacters && favCharacters.length > 0) {
   btnGoFav.classList.add('hidden');
 }
 
+//Gestionar allCharacters
 if (allCharacters) {
   renderCharacters(
     allCharacters,
@@ -61,3 +64,6 @@ if (allCharacters) {
 } else {
   fetchCharacters();
 }
+
+//Limpiar input
+searchInput.value = '';

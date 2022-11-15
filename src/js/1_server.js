@@ -7,6 +7,7 @@ function fetchCharacters() {
     .then((response) => response.json())
     .then((data) => {
       allCharacters = data;
+      foundCharacters = allCharacters;
       saveToLocal(allCharacters, 'allCharactersLS');
       renderCharacters(
         allCharacters,

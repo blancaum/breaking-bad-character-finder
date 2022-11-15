@@ -118,7 +118,7 @@ function handleResetClick() {
   );
   //volver a pintar personajes
   renderCharacters(
-    allCharacters,
+    foundCharacters,
     listCharactersElement,
     classListItemAllCharacters
   );
