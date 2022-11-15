@@ -26,9 +26,11 @@ const btnResetFav = document.querySelector('.js_reset_favorites');
 /***END Elementos HTML***/
 
 //Variables globales
-let allCharacters = JSON.parse(localStorage.getItem('allCharactersLS'));
+let allCharacters = getFromLocal('allCharactersLS');
+//let allCharacters = JSON.parse(localStorage.getItem('allCharactersLS'));
 let foundCharacters = [];
-let favCharacters = JSON.parse(localStorage.getItem('favCharactersLS'));
+let favCharacters = getFromLocal('favCharactersLS');
+//let favCharacters = JSON.parse(localStorage.getItem('favCharactersLS'));
 
 //Clases HTML necesarias
 const classListItemAllCharacters = 'js_character_article';

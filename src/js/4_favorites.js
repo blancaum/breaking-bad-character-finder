@@ -2,11 +2,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
-//Función que quita el mensaje de "Added to favorites"
-const removeMsg = () => {
-  favMessage.classList.add('hidden');
-};
-
 /***Handle Characters***/
 function addCharacterListeners() {
   const allCharacterItems = document.querySelectorAll(
@@ -25,33 +20,28 @@ function handleCharactersClick(event) {
     (character) => character.char_id === favoriteId
   );
 
-  const characterInFavouritesIndex = favCharacters.findIndex(
-    (character) => character.char_id === favoriteId
-  );
-
-  if (characterInFavouritesIndex === -1) {
+  if (!isCharacterInFavorites(favoriteId)) {
     favCharacters.push(favoriteCharacter);
-    favoriteElement.classList.add('favorite');
-    favMessage.classList.remove('hidden');
-    setTimeout(removeMsg, 3000);
+    addFavoriteClass(favoriteElement);
+    showFavMsg();
+    setTimeout(hideFavMsg, 3000);
   } else {
-    favCharacters.splice(characterInFavouritesIndex, 1);
-    favoriteElement.classList.remove('favorite');
+    const favIndex = getFavIndex(favoriteId);
+    favCharacters.splice(favIndex, 1);
+    removeFavoriteClass(favoriteElement);
   }
 
-  localStorage.setItem('favCharactersLS', JSON.stringify(favCharacters));
+  saveToLocal(favCharacters, 'favCharactersLS');
 
   if (favCharacters.length > 0) {
-    sectionFavoritesElement.classList.remove('hidden');
-    btnGoFav.classList.remove('hidden');
+    showFavorites();
     renderFavorites(
       favCharacters,
       listFavoritesElement,
       classListItemFavCharacters
     );
   } else {
-    sectionFavoritesElement.classList.add('hidden');
-    btnGoFav.classList.add('hidden');
+    hideFavorites();
   }
 }
 
@@ -73,31 +63,26 @@ function handleFavoritesClick(event) {
     (character) => character.char_id === favoriteId
   );
 
-  const characterInFavouritesIndex = favCharacters.findIndex(
-    (character) => character.char_id === favoriteId
-  );
-
-  if (characterInFavouritesIndex === -1) {
+  if (!isCharacterInFavorites(favoriteId)) {
     favCharacters.push(favoriteCharacter);
-    favoriteElement.classList.add('favorite');
+    addFavoriteClass(favoriteElement);
   } else {
-    favCharacters.splice(characterInFavouritesIndex, 1);
-    favoriteElement.classList.remove('favorite');
+    const favIndex = getFavIndex(favoriteId);
+    favCharacters.splice(favIndex, 1);
+    removeFavoriteClass(favoriteElement);
   }
 
-  localStorage.setItem('favCharactersLS', JSON.stringify(favCharacters));
+  saveToLocal(favCharacters, 'favCharactersLS');
 
   if (favCharacters.length > 0) {
-    sectionFavoritesElement.classList.remove('hidden');
-    btnGoFav.classList.remove('hidden');
+    showFavorites();
     renderFavorites(
       favCharacters,
       listFavoritesElement,
       classListItemFavCharacters
     );
   } else {
-    sectionFavoritesElement.classList.add('hidden');
-    btnGoFav.classList.add('hidden');
+    hideFavorites();
   }
 
   renderCharacters(
@@ -113,11 +98,12 @@ function handleFavoritesClick(event) {
 
 btnResetFav.addEventListener('click', handleResetClick);
 
-function handleResetClick(event) {
+function handleResetClick() {
   //limpiar array de favoritos
   favCharacters = [];
   //limpiar favs de local storage
-  localStorage.removeItem('favCharactersLS');
+  removeFromLocal('favCharactersLS');
+
   //volver a pintar fav
   renderFavorites(
     favCharacters,
@@ -130,7 +116,76 @@ function handleResetClick(event) {
     listCharactersElement,
     classListItemAllCharacters
   );
-  //esconder sección de favoritos
+  //esconder favoritos
+  hideFavorites();
+}
+
+/*******************UTILITIES*****************/
+
+//Función que quita el mensaje de "Added to favorites"
+function hideFavMsg() {
+  favMessage.classList.add('hidden');
+}
+//Función que muestra el mensaje de "Added to favorites"
+function showFavMsg() {
+  favMessage.classList.remove('hidden');
+}
+
+function getFavIndex(characterId) {
+  const characterInFavouritesIndex = favCharacters.findIndex(
+    (character) => character.char_id === characterId
+  );
+  return characterInFavouritesIndex;
+}
+
+function isCharacterInFavorites(characterId) {
+  const characterInFavouritesIndex = getFavIndex(characterId);
+
+  let isInFav = false;
+  if (characterInFavouritesIndex !== -1) {
+    isInFav = true;
+  }
+  return isInFav;
+}
+
+/***Esconder favoritos***/
+function hideFavoritesSection() {
   sectionFavoritesElement.classList.add('hidden');
+}
+
+function hideButtonGoFav() {
   btnGoFav.classList.add('hidden');
 }
+
+function hideFavorites() {
+  hideFavoritesSection();
+  hideButtonGoFav();
+}
+/***END esconder favoritos***/
+
+/***Mostrar favoritos***/
+function showFavoritesSection() {
+  sectionFavoritesElement.classList.remove('hidden');
+}
+
+function showButtonGoFav() {
+  btnGoFav.classList.remove('hidden');
+}
+
+function showFavorites() {
+  showFavoritesSection();
+  showButtonGoFav();
+}
+/***END Mostrar favoritos***/
+
+//Añadir clase favorite
+function addFavoriteClass(element) {
+  element.classList.add('favorite');
+}
+
+//Quitar clase favorite
+function removeFavoriteClass(element) {
+  element.classList.remove('favorite');
+}
+
+/***END UTILITIES***/
