@@ -26,9 +26,9 @@ const btnResetFav = document.querySelector('.js_reset_favorites');
 /***END Elementos HTML***/
 
 //Variables globales
-let allCharacters = JSON.parse(localStorage.getItem('allCharactersLS'));
-let foundCharacters = [];
-let favCharacters = JSON.parse(localStorage.getItem('favCharactersLS'));
+let allCharacters = getFromLocal('allCharactersLS');
+let foundCharacters = allCharacters;
+let favCharacters = getFromLocal('favCharactersLS');
 
 //Clases HTML necesarias
 const classListItemAllCharacters = 'js_character_article';
@@ -36,13 +36,17 @@ const classListItemFavCharacters = 'js_favorite_article';
 const classRemoveIcon = 'js_remove_favorite';
 
 //Código que se ejecuta al cargar la página
+
+//Gestionar favCharacters
 if (favCharacters && favCharacters.length > 0) {
   sectionFavoritesElement.classList.remove('hidden');
   btnGoFav.classList.remove('hidden');
-  renderFavorites(
+  const isFav = true;
+  renderCharacters(
     favCharacters,
     listFavoritesElement,
-    classListItemFavCharacters
+    classListItemFavCharacters,
+    isFav
   );
 } else {
   favCharacters = [];
@@ -50,6 +54,7 @@ if (favCharacters && favCharacters.length > 0) {
   btnGoFav.classList.add('hidden');
 }
 
+//Gestionar allCharacters
 if (allCharacters) {
   renderCharacters(
     allCharacters,
@@ -59,3 +64,6 @@ if (allCharacters) {
 } else {
   fetchCharacters();
 }
+
+//Limpiar input
+searchInput.value = '';
