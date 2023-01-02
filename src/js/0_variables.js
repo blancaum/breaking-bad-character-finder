@@ -23,6 +23,9 @@ const btnGoFav = document.querySelector('.js_button_gofav');
 //Botón de resetear favoritos
 const btnResetFav = document.querySelector('.js_reset_favorites');
 
+//Párrafo de resultados
+const searchResults = document.querySelector('.js_search_results');
+
 /***END Elementos HTML***/
 
 //Variables globales
