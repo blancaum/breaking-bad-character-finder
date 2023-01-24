@@ -1,4 +1,4 @@
-# Breaking Bad Characters - Evaluación final Módulo 2
+# Breaking Bad Character Finder
 
 ## Autora: Blanca Ubis Martínez
 
